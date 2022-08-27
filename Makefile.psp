@@ -1,0 +1,39 @@
+TARGET = Factorunner
+OBJS = audio.o tex.o utils.o input.o gr.o main.o
+
+INCDIR = libs libs/include
+CFLAGSA = -D__GLIBC_USE\(...\)=0 -ffast-math -Wall -O2 -DPSP=1
+CFLAGS = $(CFLAGSA) -std=c99 -I.
+CXXFLAGS = $(CFLAGSA) -std=c++17 -fno-rtti
+ASFLAGS = $(CFLAGSA)
+
+LIBDIR = libs/lib
+LDFLAGS =
+LIBS = -lintrafont -lglib2d -lpng16 -lz -lpspgu -lpspvram -lpspaudio -lpspaudiolib -lpsppower
+
+# PSP-specific stuff
+BUILD_PRX = 1
+PSP_FW_VERSION = 500
+PSP_LARGE_MEMORY = 1
+
+EXTRA_TARGETS = EBOOT.PBP
+PSP_EBOOT_TITLE = Factorunner
+PSP_EBOOT_ICON = ICON0.PNG
+
+PSPSDK = $(shell psp-config -p)
+include $(PSPSDK)/lib/build.mak
+
+run:
+	PPSSPPSDL ./EBOOT.PBP
+
+dist: .FORCE
+	mkdir -p dist ; \
+	rm -rf dist/* ; \
+	cp -rv assets dist/assets ; \
+	rm -rf dist/assets/*.ttf dist/assets/icon.png ; \
+	cp *.txt EBOOT.PBP PARAM.SFO ICON0.PNG dist ; \
+	rm -f factorunner_psp.zip ; \
+	zip -r factorunner_psp.zip dist
+
+.phony: .FORCE
+.FORCE:

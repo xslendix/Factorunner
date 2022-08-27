@@ -1,0 +1,23 @@
+Game controls - PSP
+===================
+
+There are 2 main ways of horizontal movement: the left and right D-Pad buttons
+or the joystick.
+
+You can jump using the X button, pause with the O button.
+
+There is auto-jump.
+
+Game controls - PSP
+===================
+
+You can move horizontally using either the left and right D-Pad buttons on a
+controller or using the left and right arrow keys on your keyboard.
+
+You can jump using space, z or the up arrow key. On a controller, you can use
+the A/X button to jump.
+
+You can pause using the P key or by pressing Escape. On a controller, this is
+done using the B/O button.
+
+There is auto-jump. Physics may be a different making the game a tad bit harder.
