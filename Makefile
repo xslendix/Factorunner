@@ -41,5 +41,15 @@ dist: .FORCE
 	rm -f factorunner_pc.zip ; \
 	zip -r factorunner_pc.zip dist/*
 
+# PLAYSTATION PORTABLE
+psp:
+	$(MAKE) -f Makefile.psp
+psp_run:
+	$(MAKE) -f Makefile.psp run
+psp_clean:
+	$(MAKE) -f Makefile.psp clean
+psp_dist:
+	$(MAKE) -f Makefile.psp dist
+
 .phony: .FORCE
 .FORCE:
