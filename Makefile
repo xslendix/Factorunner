@@ -6,7 +6,11 @@ LD=cc
 
 LIBS = -lm -lraylib
 
-CFLAGSA = -ffast-math -Wall -O0 -g -DRAYLIB=1 $(LIBS)
+CFLAGSA = -ffast-math -Wall -DRAYLIB=1 $(LIBS)
+ifdef DEBUG
+CFLAGSA += -O0 -g
+endif
+
 CFLAGS = $(CFLAGSA) -std=c99 -I.
 LDFLAGS = $(CFLAGSA)
 
