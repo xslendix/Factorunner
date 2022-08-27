@@ -638,7 +638,11 @@ draw_stats(void)
 
   font_set_style(0.5, WHITE, TEXT_ALIGN_CENTER);
   draw_text((SCREEN_WIDTH*GAME_SCALE)/2., (SCREEN_HEIGHT*GAME_SCALE)/2.-40,
+#ifdef PSP
 	    "Statistics\n\n\nBest time: %d:%d.%d\n\nLatest time: %d:%d.%d\n\nLatest deaths: %d\n\nLeast deaths: %d",
+#else
+	    "Statistics\n\nBest time: %d:%d.%d\nLatest time: %d:%d.%d\nLatest deaths: %d\nLeast deaths: %d",
+#endif
 	    best_time/60000, (best_time / 1000)%60, best_time % 1000,
 	    diff/60000, (diff / 1000)%60, diff % 1000,
 	    p.deaths, least_deaths);
